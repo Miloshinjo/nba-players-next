@@ -1,3 +1,4 @@
+// We need to declare this at the top of the file so that we can use this action in client components as well.
 'use server';
 
 import { db } from '@/db/db';

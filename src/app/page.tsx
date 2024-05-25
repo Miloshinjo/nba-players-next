@@ -2,6 +2,11 @@ import { AddPlayerForm } from '@/components/AddPlayerForm';
 import { Players } from '@/components/Players';
 import { Suspense } from 'react';
 
+/**
+ * Home page component
+ *
+ * @returns NextJS page component
+ */
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-100 flex flex-col justify-center items-center gap-10">

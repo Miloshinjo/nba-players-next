@@ -1,8 +1,13 @@
 import { getPlayers } from '@/cache/getPlayers';
 import { DeletePlayerButton } from './DeletePlayerButton';
 
+/**
+ * Server component to fetch and display a list of players.
+ *
+ * @returns React component
+ */
 export async function Players() {
-  // fetch players from the DB
+  // fetch players from the database
   const players = await getPlayers();
 
   // Handle empty state

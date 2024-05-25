@@ -1,31 +1,38 @@
-// 'use client';
-
 import { db } from '@/db/db';
 import { playersTable } from '@/db/schema';
 import { revalidatePath } from 'next/cache';
 
+/**
+ * Form to add a new player to the database
+ *
+ * @returns React component
+ */
 export function AddPlayerForm() {
   async function action(formData: FormData) {
+    // We need to use 'use server' to be able to use this function
+    // as a server action
     'use server';
 
     const name = formData.get('playerName') as string;
 
+    // We can do some server validation here and
+    // return an error message
     if (!name) {
       // do some server validation
     }
 
+    // Insert the player into the database
     const player = await db
       .insert(playersTable)
       .values({ name })
       .returning()
       .catch((error) => {
+        // Handle errors in any way you want
         console.log({ error });
       });
 
-    console.log({ player });
-
+    // Revalidate server cache for the home page
     revalidatePath('/');
-    // This function will be called when the form is submitted.
   }
 
   return (
@@ -49,6 +56,7 @@ export function AddPlayerForm() {
         <button
           type="submit"
           className="bg-gray-200 self-end px-2 py-1 font-medium rounded border"
+          title="Add player"
         >
           Add player
         </button>

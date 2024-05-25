@@ -6,8 +6,6 @@ export const playersTable = sqliteTable('players', {
   name: text('name').notNull().unique(),
 });
 
-// These are the schemas for inserting and selecting rows from the 'players' table.
-
 // These are the types for the rows in the 'players' table.
 export type SelectPlayer = typeof playersTable.$inferSelect;
 export type InsertPlayer = typeof playersTable.$inferInsert;
