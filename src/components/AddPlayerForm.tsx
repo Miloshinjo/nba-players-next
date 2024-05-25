@@ -2,6 +2,7 @@
 
 import { db } from '@/db/db';
 import { playersTable } from '@/db/schema';
+import { revalidatePath } from 'next/cache';
 
 export function AddPlayerForm() {
   async function action(formData: FormData) {
@@ -22,6 +23,8 @@ export function AddPlayerForm() {
       });
 
     console.log({ player });
+
+    revalidatePath('/');
     // This function will be called when the form is submitted.
   }
 
