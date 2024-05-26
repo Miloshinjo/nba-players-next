@@ -1,7 +1,7 @@
 // We need to declare this at the top of the file so that we can use this action in client components as well.
 'use server';
 
-import { db } from '@/db/db';
+import { db } from '@/db/client';
 import { playersTable } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';

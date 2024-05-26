@@ -1,4 +1,4 @@
-import { db } from '@/db/db';
+import { db } from '@/db/client';
 import { playersTable } from '@/db/schema';
 import { revalidatePath } from 'next/cache';
 
